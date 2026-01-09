@@ -68,7 +68,7 @@ export default function Register() {
                 value={formData.name}
                 onChange={handleInputChange}
                 placeholder="Name"
-                className="w-full bg-white text-gray-900 px-4 py-3 rounded-lg focus:outline-none focus:ring-2 focus:ring-pink-500 placeholder-gray-500 text-sm"
+                className="w-full bg-white text-gray-900 px-4 py-3 rounded-lg focus:outline-none focus:ring-2 focus:ring-grey-500 placeholder-gray-500 text-sm"
               />
             </div>
 
@@ -83,7 +83,7 @@ export default function Register() {
                 value={formData.email}
                 onChange={handleInputChange}
                 placeholder="Email@example.com"
-                className="w-full bg-white text-gray-900 px-4 py-3 rounded-lg focus:outline-none focus:ring-2 focus:ring-pink-500 placeholder-gray-500 text-sm"
+                className="w-full bg-white text-gray-900 px-4 py-3 rounded-lg focus:outline-none focus:ring-2 focus:ring-grey-500 placeholder-gray-500 text-sm"
               />
             </div>
 
@@ -98,7 +98,7 @@ export default function Register() {
                 value={formData.password}
                 onChange={handleInputChange}
                 placeholder="Password"
-                className="w-full bg-white text-gray-900 px-4 py-3 rounded-lg focus:outline-none focus:ring-2 focus:ring-pink-500 placeholder-gray-500 text-sm"
+                className="w-full bg-white text-gray-900 px-4 py-3 rounded-lg focus:outline-none focus:ring-2 focus:ring-grey-500 placeholder-gray-500 text-sm"
               />
             </div>
 
