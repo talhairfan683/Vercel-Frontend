@@ -22,7 +22,7 @@ export default function Login() {
   return (
     <div className="min-h-screen bg-gradient-to-br from-[#16131d] to-[#16131d]">
       {/* Navbar */}
-      <nav className="bg-[#1e1b2e]/80 backdrop-blur-sm px-6 py-4 flex items-center justify-between border-b border-gray-800/50">
+      <nav className="bg-[#1e1b2e]/80 backdrop-blur-sm px-2 py-4 flex items-center justify-between border-b border-gray-800/50">
         {/* Logo */}
         <div className="flex items-center gap-3">
           <img src={logo} alt="Logo" className="w-12 h-12 rounded-full" />
