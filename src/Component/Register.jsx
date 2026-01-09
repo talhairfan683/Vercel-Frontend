@@ -25,13 +25,13 @@ export default function Register() {
   return (
     <div className="min-h-screen bg-gradient-to-br from-[#16131d] to-[#16131d]">
       {/* Navbar */}
-      <nav className="bg-[#1e1b2e]/80 backdrop-blur-sm px-4 py-4 flex items-center justify-between border-b border-gray-800/50">
+      <nav className="bg-[#1e1b2e]/80 backdrop-blur-sm px-6 py-4 flex items-center justify-between border-b border-gray-800/50">
         {/* Logo */}
         <div className="flex items-center gap-3">
           <img src={logo} alt="Logo" className="w-12 h-12 rounded-full" />
           <div>
             <h1 className="text-white text-xl font-bold leading-tight">svinpas</h1>
-            <p className="text-gray-500 text-xs">success through<br/> motivational systems.</p>
+            <p className="text-gray-500 text-xs">success through motivational systems.</p>
           </div>
         </div>
 
