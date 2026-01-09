@@ -40,13 +40,13 @@ export default function Account() {
 
   return (
     <div className="flex min-h-screen bg-[#1a1625]">
-      {/* Sidebar - Hidden on mobile */}
+      {/* Sidebar - Desktop Only */}
       <aside className="hidden lg:flex w-32 bg-[#16131d] border-r border-gray-800/50 flex-col items-center py-6 gap-8">
         <div className="mb-4">
           <img src={logo} alt="Logo" className="w-10 h-10 rounded-full" />
         </div>
 
-        <button onClick={() => navigate('/')} className="flex flex-col items-center gap-2 text-gray-400 hover:text-white transition">
+        <button onClick={() => navigate('/dashboard')} className="flex flex-col items-center gap-2 text-gray-400 hover:text-white transition">
           <div className="w-10 h-10 flex items-center justify-center">
             <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 20 20">
               <path d="M10.707 2.293a1 1 0 00-1.414 0l-7 7a1 1 0 001.414 1.414L4 10.414V17a1 1 0 001 1h2a1 1 0 001-1v-2a1 1 0 011-1h2a1 1 0 011 1v2a1 1 0 001 1h2a1 1 0 001-1v-6.586l.293.293a1 1 0 001.414-1.414l-7-7z" />
@@ -64,7 +64,7 @@ export default function Account() {
           <span className="text-xs font-medium">Notifications</span>
         </button>
 
-        <button onClick={() => navigate('/settings')} className="flex flex-col items-center gap-2 text-white">
+        <button onClick={() => navigate('/Setting')} className="flex flex-col items-center gap-2 text-white">
           <div className="w-10 h-10 bg-[#e95260] rounded-xl flex items-center justify-center">
             <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10.325 4.317c.426-1.756 2.924-1.756 3.35 0a1.724 1.724 0 002.573 1.066c1.543-.94 3.31.826 2.37 2.37a1.724 1.724 0 001.065 2.572c1.756.426 1.756 2.924 0 3.35a1.724 1.724 0 00-1.066 2.573c.94 1.543-.826 3.31-2.37 2.37a1.724 1.724 0 00-2.572 1.065c-.426 1.756-2.924 1.756-3.35 0a1.724 1.724 0 00-2.573-1.066c-1.543.94-3.31-.826-2.37-2.37a1.724 1.724 0 00-1.065-2.572c-1.756-.426-1.756-2.924 0-3.35a1.724 1.724 0 001.066-2.573c-.94-1.543.826-3.31 2.37-2.37.996.608 2.296.07 2.572-1.065z" />
@@ -85,13 +85,13 @@ export default function Account() {
       </aside>
 
       {/* Main Content */}
-      <main className="flex-1 overflow-y-auto">
+      <main className="flex-1 overflow-y-auto pb-20 lg:pb-0">
         <div className="max-w-2xl mx-auto px-4 sm:px-6 py-4 sm:py-8">
           {/* Back Button and Logo */}
           <div className="flex items-center justify-between mb-6 sm:mb-8">
             <button 
-              onClick={() => navigate('/settings')}
-              className="w-10 h-10 sm:w-12 sm:h-12 bg-[#e95260] rounded-full flex items-center justify-center transition"
+              onClick={() => navigate('/Setting')}
+              className="w-10 h-10 sm:w-12 sm:h-12 bg-[#e95260] hover:bg-[#d84350] rounded-full flex items-center justify-center transition"
             >
               <svg className="w-5 h-5 sm:w-6 sm:h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" />
@@ -110,7 +110,7 @@ export default function Account() {
               </div>
               <button
                 onClick={handleUpdate}
-                className="w-full sm:w-auto px-6 py-2 bg-[#e95260] rounded-lg text-white font-medium transition text-sm sm:text-base"
+                className="w-full sm:w-auto px-6 py-2 bg-[#e95260] hover:bg-[#d84350] rounded-lg text-white font-medium transition text-sm sm:text-base"
               >
                 Update
               </button>
@@ -129,7 +129,7 @@ export default function Account() {
                   className="w-full bg-white text-gray-900 border border-gray-300 rounded-lg px-4 py-3 text-left flex items-center justify-between hover:border-white transition text-sm sm:text-base"
                 >
                   <span>{language}</span>
-                  <svg className={`w-5 h-5 text-white-500 transition-transform ${showLanguageDropdown ? 'rotate-180' : ''}`} fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <svg className={`w-5 h-5 text-gray-500 transition-transform ${showLanguageDropdown ? 'rotate-180' : ''}`} fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
                   </svg>
                 </button>
@@ -161,10 +161,10 @@ export default function Account() {
               <div className="relative mb-4">
                 <button
                   onClick={() => setShowReminderDropdown(!showReminderDropdown)}
-                  className="w-full bg-white text-gray-900 border border-gray-300 rounded-lg px-4 py-3 text-left flex items-center justify-between hover:border-white-500 transition text-sm sm:text-base"
+                  className="w-full bg-white text-gray-900 border border-gray-300 rounded-lg px-4 py-3 text-left flex items-center justify-between hover:border-white transition text-sm sm:text-base"
                 >
                   <span>{reminderInterval}</span>
-                  <svg className={`w-5 h-5 text-white-500 transition-transform ${showReminderDropdown ? 'rotate-180' : ''}`} fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <svg className={`w-5 h-5 text-gray-500 transition-transform ${showReminderDropdown ? 'rotate-180' : ''}`} fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
                   </svg>
                 </button>
@@ -194,7 +194,7 @@ export default function Account() {
                     type="checkbox"
                     checked={deadlineReminders}
                     onChange={(e) => setDeadlineReminders(e.target.checked)}
-                    className="w-5 h-5 text-white-500 bg-transparent border-2 border-gray-400 rounded focus:ring-white focus:ring-2 cursor-pointer"
+                    className="w-5 h-5 text-pink-500 bg-transparent border-2 border-gray-400 rounded focus:ring-pink-500 focus:ring-2 cursor-pointer"
                   />
                   <span className="text-white text-sm">Deadline Reminders</span>
                 </label>
@@ -204,7 +204,7 @@ export default function Account() {
                     type="checkbox"
                     checked={statusUpdates}
                     onChange={(e) => setStatusUpdates(e.target.checked)}
-                    className="w-5 h-5 text-pink-500 bg-transparent border-2 border-gray-400 rounded focus:ring-white focus:ring-2 cursor-pointer"
+                    className="w-5 h-5 text-pink-500 bg-transparent border-2 border-gray-400 rounded focus:ring-pink-500 focus:ring-2 cursor-pointer"
                   />
                   <span className="text-white text-sm">Status Updates</span>
                 </label>
@@ -214,7 +214,7 @@ export default function Account() {
                     type="checkbox"
                     checked={achievementCelebrations}
                     onChange={(e) => setAchievementCelebrations(e.target.checked)}
-                    className="w-5 h-5 text-pink-500 bg-transparent border-2 border-gray-400 rounded focus:ring-white focus:ring-2 cursor-pointer"
+                    className="w-5 h-5 text-pink-500 bg-transparent border-2 border-gray-400 rounded focus:ring-pink-500 focus:ring-2 cursor-pointer"
                   />
                   <span className="text-white text-sm">Achievement Celebrations</span>
                 </label>
@@ -232,7 +232,7 @@ export default function Account() {
                   placeholder="Savannah Nguyen"
                   value={cardholderName}
                   onChange={(e) => setCardholderName(e.target.value)}
-                  className="w-full bg-white text-gray-900 border border-gray-300 rounded-lg px-4 py-3 placeholder-gray-500 focus:outline-none focus:border-white transition text-sm sm:text-base"
+                  className="w-full bg-white text-gray-900 border border-gray-300 rounded-lg px-4 py-3 placeholder-gray-500 focus:outline-none focus:border-pink-500 transition text-sm sm:text-base"
                 />
 
                 <input
@@ -240,7 +240,7 @@ export default function Account() {
                   placeholder="4359"
                   value={cardNumber}
                   onChange={(e) => setCardNumber(e.target.value)}
-                  className="w-full bg-white text-gray-900 border border-gray-300 rounded-lg px-4 py-3 placeholder-gray-500 focus:outline-none focus:border-white transition text-sm sm:text-base"
+                  className="w-full bg-white text-gray-900 border border-gray-300 rounded-lg px-4 py-3 placeholder-gray-500 focus:outline-none focus:border-pink-500 transition text-sm sm:text-base"
                 />
 
                 <div className="grid grid-cols-2 gap-3">
@@ -249,20 +249,20 @@ export default function Account() {
                     placeholder="5/27/15"
                     value={expiryDate}
                     onChange={(e) => setExpiryDate(e.target.value)}
-                    className="bg-white text-gray-900 border border-gray-300 rounded-lg px-4 py-3 placeholder-gray-500 focus:outline-none focus:border-white transition text-sm sm:text-base"
+                    className="bg-white text-gray-900 border border-gray-300 rounded-lg px-4 py-3 placeholder-gray-500 focus:outline-none focus:border-pink-500 transition text-sm sm:text-base"
                   />
                   <input
                     type="text"
                     placeholder="CVV"
                     value={cvv}
                     onChange={(e) => setCvv(e.target.value)}
-                    className="bg-white text-gray-900 border border-gray-300 rounded-lg px-4 py-3 placeholder-gray-500 focus:outline-none focus:border-white transition text-sm sm:text-base"
+                    className="bg-white text-gray-900 border border-gray-300 rounded-lg px-4 py-3 placeholder-gray-500 focus:outline-none focus:border-pink-500 transition text-sm sm:text-base"
                   />
                 </div>
 
                 <button
                   onClick={handleVerifyPayment}
-                  className="w-full bg-[#e95260] text-white rounded-lg px-4 py-3 font-medium transition text-sm sm:text-base"
+                  className="w-full bg-[#e95260] hover:bg-[#d84350] text-white rounded-lg px-4 py-3 font-medium transition text-sm sm:text-base"
                 >
                   Verify Payment Information
                 </button>
@@ -302,6 +302,50 @@ export default function Account() {
           </div>
         </div>
       </main>
+
+      {/* Mobile Bottom Navigation */}
+      <nav className="lg:hidden fixed bottom-0 left-0 right-0 bg-[#16131d] border-t border-gray-800/50 flex items-center justify-around py-3 z-50">
+        {/* My Goals */}
+        <button onClick={() => navigate('/dashboard')} className="flex flex-col items-center gap-1 text-gray-400">
+          <div className="w-10 h-10 flex items-center justify-center">
+            <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 20 20">
+              <path d="M10.707 2.293a1 1 0 00-1.414 0l-7 7a1 1 0 001.414 1.414L4 10.414V17a1 1 0 001 1h2a1 1 0 001-1v-2a1 1 0 011-1h2a1 1 0 011 1v2a1 1 0 001 1h2a1 1 0 001-1v-6.586l.293.293a1 1 0 001.414-1.414l-7-7z" />
+            </svg>
+          </div>
+          <span className="text-xs font-medium">My Goals</span>
+        </button>
+
+        {/* Notifications */}
+        <button onClick={() => navigate('/notifications')} className="flex flex-col items-center gap-1 text-gray-400">
+          <div className="w-10 h-10 flex items-center justify-center">
+            <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 17h5l-1.405-1.405A2.032 2.032 0 0118 14.158V11a6.002 6.002 0 00-4-5.659V5a2 2 0 10-4 0v.341C7.67 6.165 6 8.388 6 11v3.159c0 .538-.214 1.055-.595 1.436L4 17h5m6 0v1a3 3 0 11-6 0v-1m6 0H9" />
+            </svg>
+          </div>
+          <span className="text-xs font-medium">Notifications</span>
+        </button>
+
+        {/* Settings - Active */}
+        <button onClick={() => navigate('/Setting')} className="flex flex-col items-center gap-1 text-white">
+          <div className="w-10 h-10 bg-[#e95260] rounded-xl flex items-center justify-center">
+            <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10.325 4.317c.426-1.756 2.924-1.756 3.35 0a1.724 1.724 0 002.573 1.066c1.543-.94 3.31.826 2.37 2.37a1.724 1.724 0 001.065 2.572c1.756.426 1.756 2.924 0 3.35a1.724 1.724 0 00-1.066 2.573c.94 1.543-.826 3.31-2.37 2.37a1.724 1.724 0 00-2.572 1.065c-.426 1.756-2.924 1.756-3.35 0a1.724 1.724 0 00-2.573-1.066c-1.543.94-3.31-.826-2.37-2.37a1.724 1.724 0 00-1.065-2.572c-1.756-.426-1.756-2.924 0-3.35a1.724 1.724 0 001.066-2.573c-.94-1.543.826-3.31 2.37-2.37.996.608 2.296.07 2.572-1.065z" />
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" />
+            </svg>
+          </div>
+          <span className="text-xs font-medium">Settings</span>
+        </button>
+
+        {/* Logout */}
+        <button onClick={() => navigate('/login')} className="flex flex-col items-center gap-1 text-gray-400">
+          <div className="w-10 h-10 flex items-center justify-center">
+            <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 16l4-4m0 0l-4-4m4 4H7m6 4v1a3 3 0 01-3 3H6a3 3 0 01-3-3V7a3 3 0 013-3h4a3 3 0 013 3v1" />
+            </svg>
+          </div>
+          <span className="text-xs font-medium">Logout</span>
+        </button>
+      </nav>
     </div>
   );
 }
