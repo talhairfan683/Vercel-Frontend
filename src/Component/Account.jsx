@@ -5,18 +5,15 @@ import logo from '../assets/logo.png';
 export default function Account() {
   const navigate = useNavigate();
   
-  // State for form fields
   const [language, setLanguage] = useState('English');
   const [reminderInterval, setReminderInterval] = useState('Daily');
   const [showLanguageDropdown, setShowLanguageDropdown] = useState(false);
   const [showReminderDropdown, setShowReminderDropdown] = useState(false);
   
-  // State for checkboxes
   const [deadlineReminders, setDeadlineReminders] = useState(true);
   const [statusUpdates, setStatusUpdates] = useState(false);
   const [achievementCelebrations, setAchievementCelebrations] = useState(false);
   
-  // State for payment info
   const [cardholderName, setCardholderName] = useState('');
   const [cardNumber, setCardNumber] = useState('');
   const [expiryDate, setExpiryDate] = useState('');
@@ -27,45 +24,24 @@ export default function Account() {
 
   const handleUpdate = () => {
     console.log('Update clicked');
-    console.log({
-      language,
-      reminderInterval,
-      deadlineReminders,
-      statusUpdates,
-      achievementCelebrations,
-      cardholderName,
-      cardNumber,
-      expiryDate,
-      cvv
-    });
-    // Yahan aap API call kar sakte hain
   };
 
   const handleVerifyPayment = () => {
     console.log('Verify Payment clicked');
-    console.log({
-      cardholderName,
-      cardNumber,
-      expiryDate,
-      cvv
-    });
-    // Yahan aap payment verification API call kar sakte hain
   };
 
   const handleGoogleCalendar = () => {
     console.log('Google Calendar sync clicked');
-    // Google Calendar integration logic
   };
 
   const handleOutlookSync = () => {
     console.log('Outlook sync clicked');
-    // Outlook integration logic
   };
 
   return (
     <div className="flex min-h-screen bg-[#1a1625]">
-      {/* Sidebar */}
-      <aside className="w-32 bg-[#16131d] border-r border-gray-800/50 flex flex-col items-center py-6 gap-8">
+      {/* Sidebar - Hidden on mobile */}
+      <aside className="hidden lg:flex w-32 bg-[#16131d] border-r border-gray-800/50 flex-col items-center py-6 gap-8">
         <div className="mb-4">
           <img src={logo} alt="Logo" className="w-10 h-10 rounded-full" />
         </div>
@@ -110,31 +86,31 @@ export default function Account() {
 
       {/* Main Content */}
       <main className="flex-1 overflow-y-auto">
-        <div className="max-w-2xl mx-auto px-6 py-8">
+        <div className="max-w-2xl mx-auto px-4 sm:px-6 py-4 sm:py-8">
           {/* Back Button and Logo */}
-          <div className="flex items-center justify-between mb-8">
+          <div className="flex items-center justify-between mb-6 sm:mb-8">
             <button 
               onClick={() => navigate('/settings')}
-              className="w-12 h-12 bg-[#e95260] rounded-full flex items-center justify-center transition"
+              className="w-10 h-10 sm:w-12 sm:h-12 bg-[#e95260] rounded-full flex items-center justify-center transition"
             >
-              <svg className="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <svg className="w-5 h-5 sm:w-6 sm:h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" />
               </svg>
             </button>
-            <img src={logo} alt="Logo" className="h-8" />
+            <img src={logo} alt="Logo" className="h-6 sm:h-8" />
           </div>
 
           {/* Main Card */}
-          <div className="bg-[#252031] rounded-2xl p-6 border border-gray-800/50">
+          <div className="bg-[#252031] rounded-2xl p-4 sm:p-6 border border-gray-800/50">
             {/* Header */}
-            <div className="flex items-center justify-between mb-6">
+            <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 mb-6">
               <div>
-                <h1 className="text-white text-2xl font-bold mb-1">Configure Your Account Preferences</h1>
+                <h1 className="text-white text-xl sm:text-2xl font-bold mb-1">Configure Your Account Preferences</h1>
                 <p className="text-gray-400 text-sm">Set your preferences to enhance your experience.</p>
               </div>
               <button
                 onClick={handleUpdate}
-                className="px-6 py-2 bg-[#e95260] rounded-lg text-white font-medium transition"
+                className="w-full sm:w-auto px-6 py-2 bg-[#e95260] rounded-lg text-white font-medium transition text-sm sm:text-base"
               >
                 Update
               </button>
@@ -144,13 +120,13 @@ export default function Account() {
 
             {/* Select Your Language */}
             <div className="mb-6">
-              <h3 className="text-white text-lg font-semibold mb-2">Select Your Language</h3>
+              <h3 className="text-white text-base sm:text-lg font-semibold mb-2">Select Your Language</h3>
               <p className="text-gray-400 text-sm mb-3">Choose your preferred language for app navigation.</p>
               
               <div className="relative">
                 <button
                   onClick={() => setShowLanguageDropdown(!showLanguageDropdown)}
-                  className="w-full bg-white text-gray-900 border border-gray-300 rounded-lg px-4 py-3 text-left flex items-center justify-between hover:border-white transition"
+                  className="w-full bg-white text-gray-900 border border-gray-300 rounded-lg px-4 py-3 text-left flex items-center justify-between hover:border-white transition text-sm sm:text-base"
                 >
                   <span>{language}</span>
                   <svg className={`w-5 h-5 text-white-500 transition-transform ${showLanguageDropdown ? 'rotate-180' : ''}`} fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -167,7 +143,7 @@ export default function Account() {
                           setLanguage(lang);
                           setShowLanguageDropdown(false);
                         }}
-                        className="w-full text-left px-4 py-3 text-gray-900 hover:bg-gray-100 transition"
+                        className="w-full text-left px-4 py-3 text-gray-900 hover:bg-gray-100 transition text-sm sm:text-base"
                       >
                         {lang}
                       </button>
@@ -179,13 +155,13 @@ export default function Account() {
 
             {/* Reminder Intervals */}
             <div className="mb-6">
-              <h3 className="text-white text-lg font-semibold mb-2">Reminder Intervals</h3>
+              <h3 className="text-white text-base sm:text-lg font-semibold mb-2">Reminder Intervals</h3>
               <p className="text-gray-400 text-sm mb-3">Adjust how often and what type of notifications you receive</p>
               
               <div className="relative mb-4">
                 <button
                   onClick={() => setShowReminderDropdown(!showReminderDropdown)}
-                  className="w-full bg-white text-gray-900 border border-gray-300 rounded-lg px-4 py-3 text-left flex items-center justify-between hover:border-white-500 transition"
+                  className="w-full bg-white text-gray-900 border border-gray-300 rounded-lg px-4 py-3 text-left flex items-center justify-between hover:border-white-500 transition text-sm sm:text-base"
                 >
                   <span>{reminderInterval}</span>
                   <svg className={`w-5 h-5 text-white-500 transition-transform ${showReminderDropdown ? 'rotate-180' : ''}`} fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -202,7 +178,7 @@ export default function Account() {
                           setReminderInterval(interval);
                           setShowReminderDropdown(false);
                         }}
-                        className="w-full text-left px-4 py-3 text-gray-900 hover:bg-gray-100 transition"
+                        className="w-full text-left px-4 py-3 text-gray-900 hover:bg-gray-100 transition text-sm sm:text-base"
                       >
                         {interval}
                       </button>
@@ -247,7 +223,7 @@ export default function Account() {
 
             {/* Add Payment Information */}
             <div className="mb-6">
-              <h3 className="text-white text-lg font-semibold mb-2">Add Payment Information</h3>
+              <h3 className="text-white text-base sm:text-lg font-semibold mb-2">Add Payment Information</h3>
               <p className="text-gray-400 text-sm mb-4">Securely store your payment method for goal fees.</p>
 
               <div className="space-y-3">
@@ -256,7 +232,7 @@ export default function Account() {
                   placeholder="Savannah Nguyen"
                   value={cardholderName}
                   onChange={(e) => setCardholderName(e.target.value)}
-                  className="w-full bg-white text-gray-900 border border-gray-300 rounded-lg px-4 py-3 placeholder-gray-500 focus:outline-none focus:border-white transition"
+                  className="w-full bg-white text-gray-900 border border-gray-300 rounded-lg px-4 py-3 placeholder-gray-500 focus:outline-none focus:border-white transition text-sm sm:text-base"
                 />
 
                 <input
@@ -264,7 +240,7 @@ export default function Account() {
                   placeholder="4359"
                   value={cardNumber}
                   onChange={(e) => setCardNumber(e.target.value)}
-                  className="w-full bg-white text-gray-900 border border-gray-300 rounded-lg px-4 py-3 placeholder-gray-500 focus:outline-none focus:border-white transition"
+                  className="w-full bg-white text-gray-900 border border-gray-300 rounded-lg px-4 py-3 placeholder-gray-500 focus:outline-none focus:border-white transition text-sm sm:text-base"
                 />
 
                 <div className="grid grid-cols-2 gap-3">
@@ -273,20 +249,20 @@ export default function Account() {
                     placeholder="5/27/15"
                     value={expiryDate}
                     onChange={(e) => setExpiryDate(e.target.value)}
-                    className="bg-white text-gray-900 border border-gray-300 rounded-lg px-4 py-3 placeholder-gray-500 focus:outline-none focus:border-white transition"
+                    className="bg-white text-gray-900 border border-gray-300 rounded-lg px-4 py-3 placeholder-gray-500 focus:outline-none focus:border-white transition text-sm sm:text-base"
                   />
                   <input
                     type="text"
                     placeholder="CVV"
                     value={cvv}
                     onChange={(e) => setCvv(e.target.value)}
-                    className="bg-white text-gray-900 border border-gray-300 rounded-lg px-4 py-3 placeholder-gray-500 focus:outline-none focus:border-white transition"
+                    className="bg-white text-gray-900 border border-gray-300 rounded-lg px-4 py-3 placeholder-gray-500 focus:outline-none focus:border-white transition text-sm sm:text-base"
                   />
                 </div>
 
                 <button
                   onClick={handleVerifyPayment}
-                  className="w-full bg-[#e95260] text-white rounded-lg px-4 py-3 font-medium transition"
+                  className="w-full bg-[#e95260] text-white rounded-lg px-4 py-3 font-medium transition text-sm sm:text-base"
                 >
                   Verify Payment Information
                 </button>
@@ -295,15 +271,15 @@ export default function Account() {
 
             {/* Sync with Personal Calendar */}
             <div>
-              <h3 className="text-white text-lg font-semibold mb-2">Sync with Personal Calendar</h3>
+              <h3 className="text-white text-base sm:text-lg font-semibold mb-2">Sync with Personal Calendar</h3>
               <p className="text-gray-400 text-sm mb-4">Authorize the app to access your calendar for deadline reminders</p>
 
-              <div className="flex gap-3">
+              <div className="flex flex-col sm:flex-row gap-3">
                 <button
                   onClick={handleGoogleCalendar}
-                  className="flex items-center gap-2 px-4 py-3 bg-white hover:bg-gray-100 rounded-lg border border-gray-300 transition"
+                  className="flex items-center justify-center gap-2 px-4 py-3 bg-white hover:bg-gray-100 rounded-lg border border-gray-300 transition"
                 >
-                  <svg className="w-5 h-5" viewBox="0 0 24 24">
+                  <svg className="w-5 h-5 flex-shrink-0" viewBox="0 0 24 24">
                     <path fill="#4285F4" d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z"/>
                     <path fill="#34A853" d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z"/>
                     <path fill="#FBBC05" d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l2.85-2.22.81-.62z"/>
@@ -314,9 +290,9 @@ export default function Account() {
 
                 <button
                   onClick={handleOutlookSync}
-                  className="flex items-center gap-2 px-4 py-3 bg-white hover:bg-gray-100 rounded-lg border border-gray-300 transition"
+                  className="flex items-center justify-center gap-2 px-4 py-3 bg-white hover:bg-gray-100 rounded-lg border border-gray-300 transition"
                 >
-                  <svg className="w-5 h-5" viewBox="0 0 24 24">
+                  <svg className="w-5 h-5 flex-shrink-0" viewBox="0 0 24 24">
                     <path fill="#0078D4" d="M23 5v14a1 1 0 0 1-1 1H12.5v-5h2.8l.4-3h-3.2V9.5c0-.8.2-1.3 1.3-1.3H16V5.4c-.3 0-1.3-.1-2.4-.1-2.4 0-4.1 1.5-4.1 4.2V12H6.7v3h2.8v5H2a1 1 0 0 1-1-1V5a1 1 0 0 1 1-1h20a1 1 0 0 1 1 1z"/>
                   </svg>
                   <span className="text-gray-900 font-medium text-sm">Sync with Outlook</span>
